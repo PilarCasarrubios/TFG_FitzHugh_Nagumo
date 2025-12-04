@@ -472,4 +472,37 @@ body {
         max-width: 100% !important;
         height: 100% !important;
     }
+
+    /* CENTRAR EL TÍTULO EN MÓVIL */
+    .header-fixed {
+        justify-content: center !important;   /* centra horizontalmente */
+        text-align: center !important;        /* asegura el centrado del texto */
+        padding: 0 10px;                      /* evita que se corte el texto */
+    }
+
+    .header-fixed h1 {
+        font-size: 1.4rem !important;         /* un tamaño ideal para móvil */
+        text-align: center !important;
+        width: 100%;                           /* permite que el texto se centre */
+    }
+
+    /* PANEL CON GRÁFICAS EN MÓVIL */
+    .panel {
+    min-height: 260px;       /* menos alto por defecto */
+    padding: 10px 8px;
+    }
+
+    /* Para las pestañas con gráficas (no el resumen de texto) */
+    .panel:not(.resumen) {
+    display: flex;
+    align-items: stretch;
+    }
+
+    /* Plotly: fuerza un alto razonable en móvil */
+    .panel:not(.resumen) .js-plotly-plot {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 320px !important;    /* prueba 280–360 según te guste */
+    }
+
 }
