@@ -16,7 +16,7 @@ const API_BASE = (() => {
   if (typeof process !== "undefined" && process.env?.REACT_APP_API_BASE) {
     return process.env.REACT_APP_API_BASE;
   }
-  return "http://localhost:8000";
+  return "https://fitzhugh-nagumo-back.onrender.com";
 })();
 
 export default function App(){
