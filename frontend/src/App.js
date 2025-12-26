@@ -9,15 +9,17 @@ import Resumen from "./Componentes/Resumen"
 
 
 // ccURL del backend con fallbacks para Vite y CRA
-const API_BASE = (() => {
-  if (typeof import.meta !== "undefined" && import.meta.env?.VITE_API_BASE) {
-    return import.meta.env.VITE_API_BASE;
-  }
-  if (typeof process !== "undefined" && process.env?.REACT_APP_API_BASE) {
-    return process.env.REACT_APP_API_BASE;
-  }
-  return "https://fitzhugh-nagumo-back.onrender.com";
-})();
+// const API_BASE = (() => {
+//   if (typeof import.meta !== "undefined" && import.meta.env?.VITE_API_BASE) {
+//     return import.meta.env.VITE_API_BASE;
+//   }
+//   if (typeof process !== "undefined" && process.env?.REACT_APP_API_BASE) {
+//     return process.env.REACT_APP_API_BASE;
+//   }
+//   return "https://fitzhugh-nagumo-back.onrender.com";
+// })();
+
+const API_BASE = (() => { if (typeof import.meta !== "undefined" && import.meta.env?.VITE_API_BASE) { return import.meta.env.VITE_API_BASE; } if (typeof process !== "undefined" && process.env?.REACT_APP_API_BASE) { return process.env.REACT_APP_API_BASE; } return "http://localhost:8000"; })();
 
 export default function App(){
   const[params, setParams] = useState({ a: 0.15, b:0.5, g:1.0, I: 0.4});

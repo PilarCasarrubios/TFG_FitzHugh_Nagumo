@@ -407,13 +407,8 @@ body {
 
 
 
-
-
-
-/*CCCCCCCCCCCCC*/
-@media (max-width: 768px) {
-
-    body {
+@media (max-width: 768px){
+    body{
         overflow-x: hidden;
     }
 
@@ -429,7 +424,6 @@ body {
     .container{
         max-width: 100%;
         margin: 70px 8px 16px;
-        padding: 12px 10px;
     }
 
     .tabs{
@@ -444,7 +438,6 @@ body {
         padding: 6px 10px;
     }
 
-    /* LAYOUT: de dos columnas a una sola */
     .layout{
         grid-template-columns: 1fr;
         gap: 16px;
@@ -473,77 +466,72 @@ body {
         height: 100% !important;
     }
 
-    /* CENTRAR EL TÍTULO EN MÓVIL */
-    .header-fixed {
-        justify-content: center !important;   /* centra horizontalmente */
-        text-align: center !important;        /* asegura el centrado del texto */
-        padding: 0 10px;                      /* evita que se corte el texto */
-    }
 
-    .header-fixed h1 {
-        font-size: 1.4rem !important;         /* un tamaño ideal para móvil */
+
+    /*para el movil*/
+
+    .header-fixed{
+        justify-content: center !important;
         text-align: center !important;
-        width: 100%;                           /* permite que el texto se centre */
+        padding: 0 10px;
     }
 
-    /* PANEL CON GRÁFICAS EN MÓVIL */
-    .panel {
-    min-height: 260px;       /* menos alto por defecto */
-    padding: 10px 8px;
+    .header-fixed h1{
+        font-size: 1.4rem !important; /*tamaño para el móvil*/
+        text-align: center !important;
+        width: 100%;
     }
 
-    /* Para las pestañas con gráficas (no el resumen de texto) */
-    .panel:not(.resumen) {
-    display: flex;
-    align-items: stretch;
+    /*panel con gráficas para el móvil*/
+    .panel{
+        min-height: 260px;
+        padding: 10px 8px;
     }
 
-    /* Plotly: fuerza un alto razonable en móvil */
-    .panel:not(.resumen) .js-plotly-plot {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: 320px !important;    /* prueba 280–360 según te guste */
-    }
-
-    /* ---------- GRÁFICAS RESPONSIVE (PLANO DE FASES + ESTABILIDAD LOCAL) ---------- */
-
-    /* 1. El panel (contenedor de la gráfica) se adapta al móvil */
-    .panel {
+    .panel:not(.resumen){
         display: flex;
-        flex-direction: column;       /* texto arriba, gráfica debajo */
+        align-items: stretch;
+    }
+
+    .panel.panel:not(.resumen) .js-plotly-plot{
+        width: 100% ipor !important;
+        max-width: 100% !important;
+        height: 320px !important;
+    }
+
+    /*gráficas plano de fases y estabilidad local*/
+
+    .panel{
+        display: flex;
+        flex-direction: column;/*texto arriba y gráficas abajo*/
         align-items: center;
         justify-content: flex-start;
         padding: 10px 8px;
     }
 
-    /* 2. El bloque de texto de estabilidad local también se adapta */
-    .info-estabilidad {
+    .info-estabilidad{
         width: 100%;
         display: flex;
-        flex-direction: column;       /* evita que texto + gráfica queden en una fila */
+        flex-direction: column;
         margin-bottom: 10px;
     }
 
-    /* 3. La gráfica dentro de ESTABILIDAD LOCAL se hace grande y centrada */
-    .info-estabilidad .js-plotly-plot {
+    .info-estabilidad .js-plotly-plot{
         width: 100% !important;
         max-width: 100% !important;
-        height: 300px !important;      /* ajusta entre 260–340 según gusto */
+        height: 300px !important;
         margin-top: 10px;
     }
 
-    /* 4. La gráfica del PLANO DE FASES también responsive */
-    .panel .js-plotly-plot {
+
+    /*gráfica para el plano de fases*/
+    .panel .js-plotly-plot{
         width: 100% !important;
         max-width: 100% !important;
-        height: 350px !important;      /* ajusta según se vea */
+        height: 350px !important;
     }
 
-    /* 5. Evitar que se corte por overflow */
-    .panel {
+    .panel{
         overflow: hidden;
     }
-
-
-
 }

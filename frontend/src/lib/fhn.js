@@ -25,7 +25,7 @@ export function fhnDeriv(v,w,p){
 //     }
 //     return { t, V, W };
 // }
-export async function fetchSimulate (p, ic, tMax, dt, baseURL = "https://fitzhugh-nagumo-back.onrender.com"){
+export async function fetchSimulate (p, ic, tMax, dt, baseURL = "http://localhost:8000"){
     const res = await fetch(`${baseURL}/simulate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -37,7 +37,7 @@ export async function fetchSimulate (p, ic, tMax, dt, baseURL = "https://fitzhug
 
 
 
-export async function fetchEquilibrio(p, baseURL = "https://fitzhugh-nagumo-back.onrender.com") {  //llamamos a back para los puntos de equilibrio
+export async function fetchEquilibrio(p, baseURL = "http://localhost:8000") {  //llamamos a back para los puntos de equilibrio
     const res = await fetch (`${baseURL}/equilibrio`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

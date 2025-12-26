@@ -16,9 +16,9 @@ export default function Controls({ params, setParams, ic, setIC, sim, setSim, re
             <h3>Parámetros</h3>
             <Row label = "a" value = {params.a} min = {0.01} max = {0.9999} step = {0.01} disabled = {readOnly}
                 onChange={(v) =>setParams(p=>({...p,a:v}))}/>
-            <Row label = "b" value = {params.b} min = {0.01} max = {5.0} step = {0.01} disabled = {readOnly}
+            <Row label = "b" value = {params.b} min = {0.01} max = {8.0} step = {0.01} disabled = {readOnly}
                 onChange={(v) =>setParams(p=>({...p,b:v}))}/>
-            <Row label = "g" value = {params.g} min = {0} max = {5.0} step = {0.01} disabled = {readOnly}
+            <Row label = "g" value = {params.g} min = {5} max = {5.6} step = {0.001} disabled = {readOnly}
                 onChange={(v) =>setParams(p=>({...p,g:v}))}/>
             <Row label = "I" value = {params.I} min = {0} max = {5.0} step = {0.01} disabled = {readOnly}
                 onChange={(v) =>setParams(p=>({...p,I:v}))}/>
