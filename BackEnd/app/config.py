@@ -6,4 +6,6 @@ BACKEND_PORT = 8000
 ALLOWED_ORIGINS: List[str] = [
     "http://localhost:3000",   #frontend
     "http://127.0.0.1:3000",
+    "https://tfg-qp478gwib-pilarcasarrubios-projects.vercel.app/",
+    "https://tfgapp.vercel.app/"
 ]

@@ -19,8 +19,26 @@ import Resumen from "./Componentes/Resumen"
 //   return "https://fitzhugh-nagumo-back.onrender.com";
 // })();
 
-const API_BASE = (() => { if (typeof import.meta !== "undefined" && import.meta.env?.VITE_API_BASE) { return import.meta.env.VITE_API_BASE; } if (typeof process !== "undefined" && process.env?.REACT_APP_API_BASE) { return process.env.REACT_APP_API_BASE; } return "http://localhost:8000"; })();
+const API_BASE = (() => {
+  // 1) Si viene por env (Vercel), úsalo
+  const fromEnv =
+    (typeof process !== "undefined" && (process.env.REACT_APP_API_BASE || process.env.REACT_APP_API_URL)) ||
+    (typeof import.meta !== "undefined" && import.meta.env?.VITE_API_BASE);
 
+  // 2) Fallback seguro: TU BACKEND en Render (NO localhost)
+  const base = fromEnv || "https://fitzhugh-nagumo-back.onrender.com";
+
+  // 3) Limpia la barra final por si la pegas con "/"
+  return String(base).replace(/\/$/, "");
+})();
+
+
+console.log("API_BASE =>", API_BASE);
+
+/*
+const API_BASE = (() => { if (typeof import.meta !== "undefined" && import.meta.env?.VITE_API_BASE) { return import.meta.env.VITE_API_BASE; } 
+if (typeof process !== "undefined" && process.env?.REACT_APP_API_BASE) { return process.env.REACT_APP_API_BASE; } return "http://localhost:8000"; })();
+*/
 export default function App(){
   const[params, setParams] = useState({ a: 0.15, b:0.5, g:1.0, I: 0.4});
   const [ic, setIC] = useState({ v0: 0.0, w0: 0.0});
