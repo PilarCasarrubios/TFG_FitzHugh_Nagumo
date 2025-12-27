@@ -33,7 +33,14 @@ const API_BASE = (() => {
 })();
 
 
-console.log("API_BASE =>", API_BASE);
+async function wakeUpBackend(apiBase) {
+  try{
+    await fetch(`${apiBase}/health`, {method: "GET"});
+  }catch (e){
+    console.warn("Backend warming up...");
+  }
+  
+}
 
 /*
 const API_BASE = (() => { if (typeof import.meta !== "undefined" && import.meta.env?.VITE_API_BASE) { return import.meta.env.VITE_API_BASE; } 
@@ -53,6 +60,10 @@ export default function App(){
   // const [loading, setLoading] = useState(false);
   // const [error, setError] = useState (null);
 
+
+  useEffect(() => {
+    wakeUpBackend(API_BASE);
+  }, [API_BASE]);
 
   useEffect(() => {
     let cancel = false;
