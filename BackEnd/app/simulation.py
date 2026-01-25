@@ -32,28 +32,34 @@ def simulate_fhn (a, b, g, I, v0, w0, t0, tf, dt, stimulus = None): #Método de 
     return t.tolist(), v.tolist(), w.tolist()
 
 
+def puntos_equilibrio(a, b, g, I, tol_crit=2e-3, tol_dup=1e-6):
+    # caso I=0: podemos detectar el crítico de forma estable
+    if abs(I) < 1e-12:
+        gcrit = 4.0 / (1.0 - a)**2
+        if abs(g - gcrit) < tol_crit:
+            v1, w1 = 0.0, 0.0
+            v2 = 0.5 * (1.0 + a)
+            w2 = v2 / g
+            return [(v1, w1), (v2, w2)]
 
-def puntos_equilibrio(a, b, g, I, tol = 1e-2):
+    # caso general: raíces reales del cúbico
     coeffs = [1.0, -(1.0 + a), (a + 1.0/g), -I]
     roots = np.roots(coeffs)
-    
-    pts = []
-    
-    for r in roots:
-        if abs(r.imag) < tol:
-            v = float(r.real)
-            w = v/g
-            pts.append((v,w))
-            
-    uniq = {} #Lo usamos para eliminar duplicados
-    for v, w in pts:
-        key = round(v, 6)
-        uniq[key] = (v, w)
-        
-    pts = list(uniq.values())
-    pts.sort(key=lambda t: t[0])
-    return pts
 
+    pts = []
+    for r in roots:
+        if abs(r.imag) < 1e-8:       
+            v = float(r.real)
+            w = v / g
+            pts.append((v, w))
+
+    uniq = []
+    for v, w in pts:
+        if not any(abs(v-v0) < tol_dup and abs(w-w0) < tol_dup for v0, w0 in uniq):
+            uniq.append((v, w))
+
+    uniq.sort(key=lambda t: t[0])
+    return uniq
 
 def analizar_equilibrio(v, w, a, b, g, tol_imag = 1e-8):
     
