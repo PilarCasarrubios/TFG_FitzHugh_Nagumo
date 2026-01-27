@@ -64,7 +64,7 @@ export default function App(){
 
   useEffect(() => {
     wakeUpBackend(API_BASE);
-  }, [API_BASE]);
+  }, []);
 
   useEffect(() => {
     let cancel = false;
