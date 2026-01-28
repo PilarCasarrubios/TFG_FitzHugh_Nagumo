@@ -14,8 +14,8 @@ def get_model_info():
             "puntos_equilibrio": "Los puntos de equilibrio se obtienen resolviendo dv/dt = 0 y dw/dt = 0.",
             "estabilidad": "La estabilidad depende del Jacobiano y los autovalores. ",
             "isoclinas": {
-                "v' = 0": "w = I - v(v-a)(v-1)",
-                "w' = 0": "w = v/g"
+                "dv/dt": "w = I - v(v-a)(v-1)",
+                "dw/dt": "w = v/g"
             }
         }
     }
