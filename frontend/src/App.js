@@ -26,7 +26,7 @@ const API_BASE = (() => {
     (typeof import.meta !== "undefined" && import.meta.env?.VITE_API_BASE);
 
   // 2) Fallback seguro: TU BACKEND en Render (NO localhost)
-  const base = fromEnv || "https://fitzhugh-nagumo-back.onrender.com";
+  const base = fromEnv || "http://localhost:8000";
 //"https://fitzhugh-nagumo-back.onrender.com"
 //"http://localhost:8000"
   // 3) Limpia la barra final por si la pegas con "/"
@@ -64,7 +64,7 @@ export default function App(){
 
   useEffect(() => {
     wakeUpBackend(API_BASE);
-  }, [API_BASE]);
+  }, []);
 
   useEffect(() => {
     let cancel = false;
