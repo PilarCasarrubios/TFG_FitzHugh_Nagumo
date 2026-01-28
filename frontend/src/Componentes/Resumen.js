@@ -61,18 +61,16 @@ export default function Resumen({api, eq}){
                 <h3>Isoclinas</h3>
                 <div className = "resumen-isoclinas">
                     <div>
-                        <span className="iso-label">v&pos; = 0</span>
-                        <span className="iso-eq">{info.extra.isoclinas["v' = 0"]}</span>
+                        <span className="iso-label">dv/dt = 0; </span>
+                        <span className="iso-eq">{info.extra.isoclinas["v' = 0"]}</span> 
                     </div>
                     <div>
-                        <span className="iso-label">w&pos; = 0</span>
-                        <span className="iso-eq">{info.extra.isoclinas["w' = 0"]}</span>
+                        <span className="iso-label">dw/dt = 0;</span>
+                        <span className="iso-eq">{info.extra.isoclinas["w' = 0"]}</span> 
                     </div>
                 </div>
             </section>
-            
 
-            
 
             
 
